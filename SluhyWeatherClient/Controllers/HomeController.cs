@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Globalization;
 using System.Linq;
 using System.Net;
@@ -32,7 +33,7 @@ namespace SluhyWeatherClient.Controllers
             
             using (WebClient client = new WebClient()) // WebClient class inherits IDisposable
             {
-                string htmlCode = client.DownloadString("http://95.80.202.2/weather/almanac.htm");
+                string htmlCode = client.DownloadString(ConfigurationManager.AppSettings["Endpoint"]);
                 var lines = htmlCode.Split(new string[] {"\n\t"}, StringSplitOptions.RemoveEmptyEntries);
                 List<string> groups = new List<string>();
 
