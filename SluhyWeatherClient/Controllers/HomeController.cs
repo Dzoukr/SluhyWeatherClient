@@ -115,8 +115,8 @@ namespace SluhyWeatherClient.Controllers
 
             if (v.Contains("on&nbsp;"))
             {
-                var dateStr = v.Substring(v.Length - 8);
-                var date = DateTime.ParseExact(dateStr, "MM/dd/yy", CultureInfo.InvariantCulture);
+                var dateStr = v.Substring(v.Length - 10);
+                var date = DateTime.ParseExact(dateStr, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 add = " dne " + String.Format("{0}. {1}. {2}", date.Day, date.Month, date.Year);
             }
 
